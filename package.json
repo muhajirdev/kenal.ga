@@ -1,0 +1,16 @@
+{
+  "name": "kenal.ga",
+  "version": "0.0.1",
+  "description": "A random chat app like omegle",
+  "main": "index.js",
+  "repository": "https://github.com/muhajirframe/kenal.ga",
+  "author": "Muhammad Muhajir <muhajirframe@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4",
+    "socket.io": "^2.0.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
