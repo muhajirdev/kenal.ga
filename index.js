@@ -34,13 +34,17 @@ io.on('connection', (socket) => {
             io.in(room).emit('chat message', 'Welcome to room ' + room)
         } else {
             queue.push(socket)
-            io.in(socket.id).emit('chat message', 'Please Wait')
+            io.in(socket.id).emit('chat message', 'Please Wait, your friend is on the way :)')
         }
     })
 
     socket.on('chat message', function (msg) {
         room = rooms[socket.id]
-        io.in(room).emit('chat message', msg)
+        if (room) {
+            io.in(room).emit('chat message', msg)
+        } else {
+            socket.emit('chat message', 'System: Your friend is not here yet. Please wait.')
+        }
     })
 
     socket.on('disconnect', function () {
